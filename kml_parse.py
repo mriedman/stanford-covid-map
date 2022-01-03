@@ -130,7 +130,7 @@ def p2(l,x=37.7798,y=-80.3464):
         width = max(len(val), 0)*5/K
         s += f'<text x={ctr[0]-width/2} y={ctr[1]} textLength={width} lengthAdjust=spacingAndGlyphs>{val}</text>'
     k = 6*5/K
-    r = 480*5/K
+    r = 500*5/K
     d = 20*5/K
     s += f'<path d="M{r-k} {d-k} L{r-k} {d+9*3/2*k} L{r+70*5/K} {d+9*3/2*k} L{r+70*5/K} {d-k} z"/>'
     for i in range(9):
@@ -207,10 +207,10 @@ if __name__ == '__main__':
                     fill:#2ff;
                 }
                 .ago-6 {
-                    fill:#22f;
+                    fill:#69f;
                 }
                 .ago-7 {
-                    fill:#82f;
+                    fill:#b9f;
                 }
             </style>
         </head>
