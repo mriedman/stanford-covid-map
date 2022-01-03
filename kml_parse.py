@@ -1,7 +1,7 @@
 from math import pi,cos
 import json
 
-K = 5
+K = 2.5
 def coords(x0,y0,x=37.7798,y=-80.3464):
     cc=180/3958/pi/1760*K
     cd=180/3958/pi/1760/cos(x*pi/180)*K
@@ -116,7 +116,7 @@ def p1(l):
 def p2(l,x=37.7798,y=-80.3464):
     s=''
     cl='class'
-    s += f"<image href='stanford-map.png' height='{510}px' width='{600}px' x='-12px' y='3px' />"
+    s += f"<image href='stanford-map.png' height='{510*5/K}px' width='{600*5/K}px' x='{-12*5/K}px' y='{3*5/K}px' />"
     for i in l:
         idstr = i.split('<')[0]
         if idstr in places:
@@ -127,16 +127,16 @@ def p2(l,x=37.7798,y=-80.3464):
     for i in l:
         ctr = avg_pt(i, x, y)
         val = names[i.split("<")[0]]
-        width = max(2/3*len(val), 0)
+        width = max(len(val), 0)*5/K
         s += f'<text x={ctr[0]-width/2} y={ctr[1]} textLength={width} lengthAdjust=spacingAndGlyphs>{val}</text>'
-    k = 6
-    r = 480
-    d = 20
-    s += f'<path d="M{r-k} {d-k} L{r-k} {d+9*3/2*k} L{r+70} {d+9*3/2*k} L{r+70} {d-k} z"/>'
+    k = 6*5/K
+    r = 480*5/K
+    d = 20*5/K
+    s += f'<path d="M{r-k} {d-k} L{r-k} {d+9*3/2*k} L{r+70*5/K} {d+9*3/2*k} L{r+70*5/K} {d-k} z"/>'
     for i in range(9):
         s += f'<path {cl}="ago-{i}" d="M{r} {d+i*k*3/2} L{r+k} {d+i*k*3/2} L{r+k} {d+i*k*3/2+k} L{r} {d+i*k*3/2+k} z" />'
-        s += f'<text y="{d+i*k*3/2+4}px" x="{r+k+3}px" style="font-size:5px;">{str(i)+" days since exposure" if i < 8 else "No exposure"}</text>'
-    return f"<svg height='{510}px' width='{600}px' style='position:absolute,left:0,top:0,margin:0,z-index:0'>"+s+'</svg>'
+        s += f'<text y="{d+i*k*3/2+20/K}px" x="{r+k+15/K}px" style="font-size:{5*5/K}px;">{str(i)+" days since exposure" if i < 8 else "No exposure"}</text>'
+    return f"<svg height='{510*5/K}px' width='{600*5/K}px' style='position:absolute,left:0,top:0,margin:0,z-index:0'>"+s+'</svg>'
 
 
 def getinfo(gc):
@@ -185,7 +185,7 @@ if __name__ == '__main__':
                     stroke-linecap:round;
                 }
                 text {
-                    font-size:2px;
+                    font-size:6px;
                     font-family:arial;
                 }
                 .ago-0 {
