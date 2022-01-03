@@ -165,7 +165,7 @@ if __name__ == '__main__':
         i[0],a=getinfo(i[0]),i[0]
         st+=p2(*i)
     print(st)
-    with open('test.html', 'w') as f:
+    with open('index.html', 'w') as f:
         f.write('''
     <!DOCTYPE html>
     <html>
