@@ -129,8 +129,14 @@ def p2(l,x=37.7798,y=-80.3464):
         val = names[i.split("<")[0]]
         width = max(2/3*len(val), 0)
         s += f'<text x={ctr[0]-width/2} y={ctr[1]} textLength={width} lengthAdjust=spacingAndGlyphs>{val}</text>'
-        # s+='<path '+cl+'="' + i.split('<')[0] +'" d="'+kml2(i, x, y) + '"></path>'
-    return f"<svg height='{3000/K}px' width='{3000/K}px' style='position:absolute,left:0,top:0,margin:0,z-index:0'>"+s+'</svg>'
+    k = 6
+    r = 480
+    d = 20
+    s += f'<path d="M{r-k} {d-k} L{r-k} {d+9*3/2*k} L{r+70} {d+9*3/2*k} L{r+70} {d-k} z"/>'
+    for i in range(9):
+        s += f'<path {cl}="ago-{i}" d="M{r} {d+i*k*3/2} L{r+k} {d+i*k*3/2} L{r+k} {d+i*k*3/2+k} L{r} {d+i*k*3/2+k} z" />'
+        s += f'<text y="{d+i*k*3/2+4}px" x="{r+k+3}px" style="font-size:5px;">{str(i)+" days since exposure" if i < 8 else "No exposure"}</text>'
+    return f"<svg height='{510}px' width='{600}px' style='position:absolute,left:0,top:0,margin:0,z-index:0'>"+s+'</svg>'
 
 
 def getinfo(gc):
@@ -183,7 +189,7 @@ if __name__ == '__main__':
                     font-family:arial;
                 }
                 .ago-0 {
-                    fill:#c22;
+                    fill:#e24;
                 }
                 .ago-1 {
                     fill:#f62;
