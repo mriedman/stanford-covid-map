@@ -198,19 +198,19 @@ if __name__ == '__main__':
                     fill:#ea2;
                 }
                 .ago-3 {
-                    fill:#ee2;
+                    fill:#bd2;
                 }
                 .ago-4 {
-                    fill:#6f4;
+                    fill:#6e6;
                 }
                 .ago-5 {
-                    fill:#2ff;
+                    fill:#6ef;
                 }
                 .ago-6 {
-                    fill:#69f;
+                    fill:#cdf;
                 }
                 .ago-7 {
-                    fill:#b9f;
+                    fill:#fcf;
                 }
             </style>
         </head>
