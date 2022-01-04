@@ -116,7 +116,7 @@ def p1(l):
 def p2(l,x=37.7798,y=-80.3464):
     s=''
     cl='class'
-    s += f"<image href='stanford-map.png' height='{510*5/K}px' width='{600*5/K}px' x='{-12*5/K}px' y='{3*5/K}px' />"
+    s += f"<image href='stanford-map.png' height='{2540/K}px' width='{2990/K}px' x='{-55/K}px' y='{22/K}px' />"
     for i in l:
         idstr = i.split('<')[0]
         if idstr in places:
@@ -189,10 +189,10 @@ if __name__ == '__main__':
                     font-family:arial;
                 }
                 .ago-0 {
-                    fill:#e24;
+                    fill:#d24;
                 }
                 .ago-1 {
-                    fill:#f62;
+                    fill:#f72;
                 }
                 .ago-2 {
                     fill:#ea2;
