@@ -1,5 +1,6 @@
 from math import pi,cos
 import json
+from datetime import datetime
 
 K = 2.5
 def coords(x0,y0,x=37.7798,y=-80.3464):
@@ -130,12 +131,13 @@ def p2(l,x=37.7798,y=-80.3464):
         width = max(len(val), 0)*5/K
         s += f'<text x={ctr[0]-width/2} y={ctr[1]} textLength={width} lengthAdjust=spacingAndGlyphs>{val}</text>'
     k = 6*5/K
-    r = 500*5/K
+    r = 495*5/K
     d = 20*5/K
-    s += f'<path d="M{r-k} {d-k} L{r-k} {d+9*3/2*k} L{r+70*5/K} {d+9*3/2*k} L{r+70*5/K} {d-k} z"/>'
+    s += f'<path d="M{r-k} {d-k} L{r-k} {d+10*3/2*k} L{r+85*5/K} {d+10*3/2*k} L{r+85*5/K} {d-k} z"/>'
     for i in range(9):
         s += f'<path {cl}="ago-{i}" d="M{r} {d+i*k*3/2} L{r+k} {d+i*k*3/2} L{r+k} {d+i*k*3/2+k} L{r} {d+i*k*3/2+k} z" />'
         s += f'<text y="{d+i*k*3/2+20/K}px" x="{r+k+15/K}px" style="font-size:{5*5/K}px;">{str(i)+" days since exposure" if i < 8 else "No exposure"}</text>'
+    s += f'<text y="{d+9*k*3/2+20/K}px" x="{r}px" style="font-size:{5*5/K}px;">Last updated {datetime.now().strftime("%Y-%m-%d, %I:%M %p")}</text>'
     return f"<svg height='{510*5/K}px' width='{600*5/K}px' style='position:absolute,left:0,top:0,margin:0,z-index:0'>"+s+'</svg>'
 
 
