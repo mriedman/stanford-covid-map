@@ -11,7 +11,7 @@ with open('pos.csv', 'rb') as f:
     f1 = io.StringIO(s)
     reader = csv.reader(f1, dialect='excel-tab')
     for row in reader:
-        if len(row) > 2 and row[0] not in places:
+        if len(row) > 2 and (row[0] not in places or True):
             try:
                 places[row[0]] = f"ago-{(datetime.now() - datetime.strptime(row[2], '%m/%d/%Y')).days}"
             except ValueError:
